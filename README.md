@@ -22,13 +22,13 @@ This is a personal portfolio website showcasing my projects, skills, and experie
 1. Clone the repository:
 
 ```bash
-  git clone https://github.com/imanmaulana1/Bookshelf-App.git
+  git clone https://github.com/imanmaulana1/bookshelf-app.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-  cd Bookshelf-App
+  cd bookshelf-app
 ```
 
 3. Open **index.html** in your web browser.
