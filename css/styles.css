@@ -1,0 +1,35 @@
+:root {
+  --white-50: #ddd;
+  --white-60: #ecf0f1;
+  --white-80: #f4f4f4;
+  --white-90: #f9f9f9;
+  --white-100: #fff;
+  --slate-40: #7f8c8d;
+  --slate-70: #646464;
+  --black-80: #333;
+  --darkblue-90: #2c3e50;
+  --darkblue-80: #34495e;
+  --red: #db3434;
+  --hover-1: #2980b9;
+  --hover-2: #b92929;
+  --hover-3: #424242;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
