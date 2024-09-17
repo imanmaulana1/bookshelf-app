@@ -24,12 +24,19 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--white-80);
+  color: var(--black-80);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+}
+
+header {
+  background-color: var(--darkblue-90);
+  color: var(--white-60);
+  text-align: center;
+  padding: 1rem 0;
 }
