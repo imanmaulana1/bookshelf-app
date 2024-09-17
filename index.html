@@ -20,5 +20,81 @@
     <header>
       <h1 class="title">Bookshelf App</h1>
     </header>
+    <main>
+      <div class="container">
+        <div class="bookshelf-wrapper">
+          <!-- Form Add Book -->
+          <section class="add-book">
+            <h2 class="subtitle">Tambah Buku Baru</h2>
+            <form id="bookForm" data-testid="bookForm">
+              <div class="form-group">
+                <label for="bookFormTitle">Judul</label>
+                <input
+                  id="bookFormTitle"
+                  type="text"
+                  required
+                  data-testid="bookFormTitleInput"
+                />
+              </div>
+              <div class="form-group">
+                <label for="bookFormAuthor">Penulis</label>
+                <input
+                  id="bookFormAuthor"
+                  type="text"
+                  required
+                  data-testid="bookFormAuthorInput"
+                />
+              </div>
+              <div class="form-group">
+                <label for="bookFormYear">Tahun</label>
+                <input
+                  id="bookFormYear"
+                  type="number"
+                  required
+                  data-testid="bookFormYearInput"
+                />
+              </div>
+              <div class="form-group">
+                <label for="bookFormIsComplete">Selesai dibaca</label>
+                <input
+                  id="bookFormIsComplete"
+                  type="checkbox"
+                  data-testid="bookFormIsCompleteCheckbox"
+                />
+              </div>
+              <button
+                id="bookFormSubmit"
+                type="submit"
+                data-testid="bookFormSubmitButton"
+              >
+                Masukkan Buku ke rak
+                <span class="bold" data-shelf="shelf"
+                  >Belum selesai dibaca</span
+                >
+              </button>
+            </form>
+          </section>
+          <!-- Form Search Book -->
+          <section class="search-book">
+            <h2 class="subtitle">Cari Buku</h2>
+            <form id="searchBook" data-testid="searchBookForm">
+              <label for="searchBookTitle">Judul</label>
+              <input
+                id="searchBookTitle"
+                type="text"
+                data-testid="searchBookFormTitleInput"
+              />
+              <button
+                id="searchSubmit"
+                type="submit"
+                data-testid="searchBookFormSubmitButton"
+              >
+                Cari
+              </button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
