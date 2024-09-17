@@ -31,6 +31,15 @@ export function moveBook(id) {
   }
 }
 
+export function deleteBook(id) {
+  let books = JSON.parse(localStorage.getItem('books')) || [];
+  books = books.filter((book) => book.id !== id);
+
+  localStorage.setItem('books', JSON.stringify(books));
+
+  updateBookList();
+}
+
 // Memperbarui list buku yang dirender
 export function updateBookList(filteredBooks = null) {
   const incompleteBookList = document.getElementById('incompleteBookList');

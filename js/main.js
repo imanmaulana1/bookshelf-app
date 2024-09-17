@@ -1,4 +1,9 @@
-import { addBook, moveBook, updateBookList } from './bookFunctions.js';
+import {
+  addBook,
+  moveBook,
+  deleteBook,
+  updateBookList,
+} from './bookFunctions.js';
 
 function toggleTextButton(e) {
   const shelf = document.querySelector('[data-shelf]');
@@ -16,10 +21,17 @@ function handleSubmit(e) {
   addBook();
 }
 
-// Event listener move book
+// Event listener delete book & move book
 document.addEventListener('click', function (e) {
-  const bookId = parseInt(e.target.closest('[data-bookid]').dataset.bookid);
-  moveBook(bookId);
+  if (e.target.dataset.testid === 'bookItemIsCompleteButton') {
+    const bookId = parseInt(e.target.closest('[data-bookid]').dataset.bookid);
+    moveBook(bookId);
+  }
+
+  if (e.target.dataset.testid === 'bookItemDeleteButton') {
+    const bookId = parseInt(e.target.closest('[data-bookid]').dataset.bookid);
+    deleteBook(bookId);
+  }
 });
 
 // Mengubah teks pada button add form berdasarkan checked pada input
