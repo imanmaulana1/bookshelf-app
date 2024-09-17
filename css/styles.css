@@ -34,6 +34,10 @@ body {
   padding: 20px;
 }
 
+.bold {
+  font-weight: 700;
+}
+
 header {
   background-color: var(--darkblue-90);
   color: var(--white-60);
