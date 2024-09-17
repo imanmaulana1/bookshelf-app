@@ -20,6 +20,17 @@ export function addBook() {
   document.getElementById('bookForm').reset();
 }
 
+export function moveBook(id) {
+  let books = JSON.parse(localStorage.getItem('books')) || [];
+  const bookIndex = books.findIndex((book) => book.id === id);
+
+  if (bookIndex !== -1) {
+    books[bookIndex].isComplete = !books[bookIndex].isComplete;
+    localStorage.setItem('books', JSON.stringify(books));
+    updateBookList();
+  }
+}
+
 // Memperbarui list buku yang dirender
 export function updateBookList(filteredBooks = null) {
   const incompleteBookList = document.getElementById('incompleteBookList');
