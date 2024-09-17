@@ -2,6 +2,7 @@ import {
   addBook,
   moveBook,
   deleteBook,
+  editBook,
   updateBookList,
 } from './bookFunctions.js';
 
@@ -18,7 +19,13 @@ function toggleTextButton(e) {
 function handleSubmit(e) {
   e.preventDefault();
 
-  addBook();
+  const editingBookId = this.dataset.editingBookId;
+  if (editingBookId) {
+    editBook(parseInt(editingBookId));
+    delete this.dataset.editingBookId;
+  } else {
+    addBook();
+  }
 }
 
 // Event listener delete book & move book
@@ -39,7 +46,7 @@ document
   .getElementById('bookFormIsComplete')
   .addEventListener('change', toggleTextButton);
 
-// Submit add form
+// Submit add / edit form
 document.getElementById('bookForm').addEventListener('submit', handleSubmit);
 
 document.addEventListener('DOMContentLoaded', () => {

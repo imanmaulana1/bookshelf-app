@@ -40,6 +40,46 @@ export function deleteBook(id) {
   updateBookList();
 }
 
+export function editBook(id) {
+  const title = document.getElementById('bookFormTitle').value;
+  const author = document.getElementById('bookFormAuthor').value;
+  const year = document.getElementById('bookFormYear').value;
+  const isComplete = document.getElementById('bookFormIsComplete').checked;
+
+  let books = JSON.parse(localStorage.getItem('books')) || [];
+  const bookIndex = books.findIndex((book) => book.id === id);
+
+  if (bookIndex !== -1) {
+    books[bookIndex] = {
+      id: id,
+      title,
+      author,
+      year: parseInt(year),
+      isComplete,
+    };
+
+    localStorage.setItem('books', JSON.stringify(books));
+
+    updateBookList();
+    document.getElementById('bookForm').reset();
+  }
+}
+
+// Mengisi data buku ke dalam form untuk diedit berdasarkan ID buku yang dipilih.
+function loadBookToForm(id) {
+  let books = JSON.parse(localStorage.getItem('books')) || [];
+  const book = books.find((book) => book.id === id);
+
+  if (book) {
+    document.getElementById('bookFormTitle').value = book.title;
+    document.getElementById('bookFormAuthor').value = book.author;
+    document.getElementById('bookFormYear').value = book.year;
+    document.getElementById('bookFormIsComplete').checked = book.isComplete;
+
+    document.getElementById('bookForm').dataset.editingBookId = id;
+  }
+}
+
 // Memperbarui list buku yang dirender
 export function updateBookList(filteredBooks = null) {
   const incompleteBookList = document.getElementById('incompleteBookList');
@@ -87,6 +127,13 @@ function createBookElement(book) {
                     </button>
                   </div>
                 `;
+
+  const editButton = bookItem.querySelector(
+    '[data-testid="bookItemEditButton"]'
+  );
+  editButton.addEventListener('click', () => {
+    loadBookToForm(book.id);
+  });
 
   return bookItem;
 }
