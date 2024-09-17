@@ -49,6 +49,23 @@ document
 // Submit add / edit form
 document.getElementById('bookForm').addEventListener('submit', handleSubmit);
 
+// Submit search form
+document.getElementById('searchBook').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const searchValue = document
+    .getElementById('searchBookTitle')
+    .value.toLowerCase();
+
+  const books = JSON.parse(localStorage.getItem('books')) || [];
+
+  const filteredBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(searchValue)
+  );
+
+  updateBookList(filteredBooks);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   updateBookList();
 });
